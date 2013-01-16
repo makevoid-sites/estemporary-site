@@ -19,11 +19,12 @@
             %span.by by Silvia Piantini
 
         %nav
-          %a{ href: "/collections" }  Collections
+          %a{ href: "#" }  Collections
           .subnav
             - Dir.glob("#{PATH}/public/photos/collections/*").each do |dir|
-              %a{ href: "/" }= File.basename(dir).gsub(/_/, ' ').capitalize
-          %a{ href: "/contacts" }     Contacts
+              - name = File.basename dir
+              %a{ href: "/photos/collections/#{name}" }= name.gsub(/_/, ' ').capitalize
+          %a{ href: "/contacts" } Contacts
       %section.content= yield
       .clear
     %script{ type: "text/javascript", src: "/js/app.js" }

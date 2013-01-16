@@ -35,7 +35,9 @@ class Estemporary < Sinatra::Base
     haml :contacts
   end
 
-  get "/collections" do
+  get "/photos/*/*" do |dir, subdir|
+    @dir = dir
+    @subdir = subdir
     haml :collections
   end
 end
