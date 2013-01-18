@@ -3,5 +3,5 @@
 - photos = load_photos("collections/#{collection_name}")
 .gallery
   - photos.each_with_index do |photo, idx|
-    %a.fancy{ id: "photo_#{idx}", href: photo[:path], rel: "group" }
+    %a.fancy{ id: "photo_#{idx}", href: photo[:path], rel: "group", title: "Prova titolo" }
       %img{ src: photo[:path] }

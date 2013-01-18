@@ -20,6 +20,7 @@ group :development do
   gem "guard-coffeescript", require: false
   gem "guard-livereload",   require: false
   # gem "growl"
+  gem "rb-inotify"
 end
 
 group :test do
