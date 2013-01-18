@@ -29,13 +29,14 @@ body {
 
 #container {
   width: 100%;
-  margin: 0 auto 50px;
+  margin: 40px auto 50px;
   max-width: 1400px; }
 
 h1 {
   width: 100%; }
   h1 img {
     width: 50%;
+    max-width: 100px;
     margin: 0 auto 22px;
     display: block; }
   h1 a:hover img, h1 img:hover {
@@ -71,23 +72,32 @@ nav {
     color: black; }
 
 header {
-  width: 20%;
-  margin: 0 2% 0 2%;
-  min-width: 200px;
-  width: 200px;
+  width: 30%;
+  padding: 0 2% 0 2%;
   float: left; }
 
 .content {
   width: 70%;
   color: #222222;
-  min-width: 540px;
   float: left;
-  margin: 22px 0 0; }
+  margin: 22px 0 0;
+  padding: 0 2% 0 2%; }
 
 .gallery img {
   width: 25%;
-  padding: 1%;
+  padding: 0 3% 3% 0;
   float: left; }
 
 p {
   margin: 0 0 10px 0; }
+
+@media(max-width: 650px) {
+  header {
+    width: 100%; }
+
+  .content {
+    width: 100%;
+    margin-top: 40px; }
+
+  .gallery img {
+    width: 33%; } }

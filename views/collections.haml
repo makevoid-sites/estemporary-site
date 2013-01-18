@@ -1,7 +1,0 @@
-- collection_name = "geometry_and_diamonds"
--# collection_name = "ultimi_numeri"
-- photos = load_photos("collections/#{collection_name}")
-.gallery
-  - photos.each_with_index do |photo, idx|
-    %a.fancy{ id: "photo_#{idx}", href: photo[:path], rel: "group", title: "Prova titolo" }
-      %img{ src: photo[:path] }

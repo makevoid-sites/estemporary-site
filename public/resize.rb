@@ -6,8 +6,12 @@
 
 class String
 
-  def dir_path
-    split("/")[-3..-1].join("/")
+  def without_first
+    split("/")[1..-1].join("/")
+  end
+
+  def filenamize
+    gsub(/\s+/, '_')
   end
 
 end
@@ -15,26 +19,41 @@ end
 def exec(cmd)
   puts "executing: #{cmd}"
   out = nil
-  # out = `#{cmd}`
+  out = `#{cmd}`
   puts out
+end
+
+def mkdir(dir)
+  exec "mkdir -p #{dir}"
+end
+
+def convert(src, dest)
+  exec "convert '#{src}' -geometry 1100x700 -density 72 #{dest.filenamize}"
+end
+
+def thumbs(src, dest)
+  dim = "250"
+  exec "convert '#{src}' -resize '#{dim}x#{dim}^' -gravity center -crop #{dim}x#{dim}+0+0 +repage -density 72 #{dest.filenamize}"
 end
 
 
 # main
 
+exec "rm -rf ./photos"
+exec "rm -rf ./photos_thumbs"
+
 @dir_src = dir_src = "photos_src"
 @dir_dest = dir_dest = "photos"
 
-Dir.glob("#{dir_src}/*/*").each do |dir|
-  name = File.basename dir
-  exec "mkdir -p #{dir_dest}/#{name}"
+Dir.glob("#{dir_src}/**/**").each do |file|
+  dest = "#{dir_dest}/#{file.without_first}"
+  dest_thumbs = "#{dir_dest}_thumbs/#{file.without_first}"
 
-  photos = Dir.glob "#{dir_dest}/*.jpg"
-  photos.each_with_index do |photo, idx|
-    name = File.basename photo
-    puts "name: #{name}, dir path: #{photo.dir_path}"
-
-    exec "convert #{photo} -geometry 1100x -density 72 #{idx}.jpg"
-    exec "convert #{photo} -thumbnail 300x300 -gravity center -density 72 #{dir_dest}/#{photo.dir_path}/#{name}"
+  if File.directory? file
+    mkdir dest
+    mkdir dest_thumbs
+  else
+    convert file, dest
+    thumbs  file, dest_thumbs
   end
 end

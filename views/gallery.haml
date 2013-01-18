@@ -1,0 +1,7 @@
+- subdir = "/#{@subdir}" if @subdir
+- photos = load_photos "#{@dir}#{subdir}"
+
+.gallery
+  - photos.each_with_index do |photo, idx|
+    %a.fancy{ id: "photo_#{idx}", href: photo[:path], rel: "group", title: photo[:title] }
+      %img{ src: photo[:thumb] }
