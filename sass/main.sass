@@ -1,4 +1,4 @@
-$main: #000
+$main: #222
 
 *
   -webkit-box-sizing: border-box
@@ -20,7 +20,8 @@ html, body
   clear: both
 
 a
-  color: $main
+  color: #000
+  font-weight: 500
 a:hover
   color: #666
 
@@ -64,17 +65,18 @@ nav
     display: block
     color: #222
     margin: 10px 0 0 0
+    font-weight: normal
 
 .subnav
   margin: 0 10px 0 10px
   a
     color: #888
   a:hover
-    color: $main
+    color: #000
 
 header
   width: 30%
-  padding: 0 2% 0 2%
+  padding: 0 0 0 2%
   float: left
 
 .content
@@ -82,7 +84,7 @@ header
   color: #222
   float: left
   margin: 22px 0 0
-  padding: 0 2% 0 2%
+  padding: 0 2% 0 1%
 
 .gallery
   img
@@ -92,6 +94,10 @@ header
 
 p
   margin: 0 0 10px 0
+
+.contacts
+  p.main
+    margin: 0 0 20px 0
 
 @media(max-width: 650px)
   header

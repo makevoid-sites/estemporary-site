@@ -12,13 +12,14 @@ a {
 html, body {
   margin: 0;
   padding: 0;
-  color: black; }
+  color: #222222; }
 
 .clear {
   clear: both; }
 
 a {
-  color: black; }
+  color: black;
+  font-weight: 500; }
 
 a:hover {
   color: #666666; }
@@ -62,7 +63,8 @@ nav {
   nav a {
     display: block;
     color: #222222;
-    margin: 10px 0 0 0; }
+    margin: 10px 0 0 0;
+    font-weight: normal; }
 
 .subnav {
   margin: 0 10px 0 10px; }
@@ -73,7 +75,7 @@ nav {
 
 header {
   width: 30%;
-  padding: 0 2% 0 2%;
+  padding: 0 0 0 2%;
   float: left; }
 
 .content {
@@ -81,7 +83,7 @@ header {
   color: #222222;
   float: left;
   margin: 22px 0 0;
-  padding: 0 2% 0 2%; }
+  padding: 0 2% 0 1%; }
 
 .gallery img {
   width: 25%;
@@ -90,6 +92,9 @@ header {
 
 p {
   margin: 0 0 10px 0; }
+
+.contacts p.main {
+  margin: 0 0 20px 0; }
 
 @media(max-width: 650px) {
   header {
