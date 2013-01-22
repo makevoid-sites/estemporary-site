@@ -24,7 +24,7 @@
           .subnav{ :"data-name" => "coll", class: "#{"open" if subsection == "collections"}" }
             - COLLECTIONS.each do |coll|
               %a{ href: "/gallery/collections/#{coll[:dir]}", class: "#{"selected" if subpath(3) == coll[:dir]}" }= coll[:name].humanize
-          %a{ href: "/gallery/lookbook", class: nav_selected("lookbook") } Lookbook
+          %a{ href: "/gallery/lookbook", class: nav_sub_sel("lookbook") } Lookbook
           %a{ :"data-subnav" => "coll_past", href: "javascript:void(0)"} Past Collections
           .subnav{ :"data-name" => "coll_past", class: "#{"open" if subsection == "past"}" }
             - PAST_COLL.each do |coll|

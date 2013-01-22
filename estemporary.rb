@@ -56,6 +56,9 @@ class Estemporary < Sinatra::Base
     "selected" if section == klass
   end
 
+  def nav_sub_sel(klass)
+    "selected" if subsection == klass
+  end
 
   # routes
 
