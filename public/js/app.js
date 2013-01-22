@@ -15,4 +15,12 @@
     }
   });
 
+  $(function() {
+    return $("*[data-subnav]").on("click", function(evt) {
+      var name;
+      name = $(evt.target).data("subnav");
+      return $("*[data-name='" + name + "']").slideToggle();
+    });
+  });
+
 }).call(this);

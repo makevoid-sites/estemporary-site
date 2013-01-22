@@ -5,8 +5,16 @@ require "#{path}/config/env.rb"
 class Estemporary < Sinatra::Base
   include Voidtools::Sinatra::ViewHelpers
 
-  COLLECTIONS = Dir.glob("#{PATH}/public/photos/collections/*")
+  def self.glob_photo_dir(dir)
+    Dir.glob("#{PATH}/public/photos/#{dir}/*").sort.map do |path|
+      name = File.basename path.sub(/\/\d+_/, '/')
+      dir = File.basename path
+      { name: name, dir: dir, path: path }
+    end
+  end
 
+  COLLECTIONS = glob_photo_dir "collections"
+  PAST_COLL = glob_photo_dir "past"
 
   def load_photos(dir)
     @photos = Dir.glob("#{PATH}/public/photos/#{dir}/*.jpg").map do |photo|
@@ -31,6 +39,25 @@ class Estemporary < Sinatra::Base
     end
     haml "_#{name}".to_sym, locals: locals
   end
+
+  def section
+    request.path.split("/")[1]
+  end
+
+  def subsection
+    request.path.split("/")[2]
+  end
+
+  def subpath(level)
+    request.path.split("/")[level]
+  end
+
+  def nav_selected(klass)
+    "selected" if section == klass
+  end
+
+
+  # routes
 
   get "/" do
     haml :index

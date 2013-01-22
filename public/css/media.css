@@ -1,0 +1,10 @@
+@media(max-width: 650px) {
+  header {
+    width: 100%; }
+
+  .content {
+    width: 100%;
+    margin-top: 40px; }
+
+  .gallery img {
+    width: 33%; } }
