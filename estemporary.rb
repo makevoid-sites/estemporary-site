@@ -13,8 +13,8 @@ class Estemporary < Sinatra::Base
     end
   end
 
-  COLLECTIONS = glob_photo_dir "collections"
-  PAST_COLL = glob_photo_dir "past"
+  COLLECTIONS = glob_photo_dir "latest_collections"
+  PAST_COLL = glob_photo_dir "past_collections"
 
   def load_photos(dir)
     @photos = Dir.glob("#{PATH}/public/photos/#{dir}/*.jpg").map do |photo|

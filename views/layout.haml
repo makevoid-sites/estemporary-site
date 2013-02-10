@@ -20,15 +20,15 @@
             %span.by by Silvia Piantini
 
         %nav
-          %a{ :"data-subnav" => "coll", href: "javascript:void(0)"} Collections SS13
-          .subnav{ :"data-name" => "coll", class: "#{"open" if subsection == "collections"}" }
+          %a{ :"data-subnav" => "coll", href: "javascript:void(0)"} Latest Collections
+          .subnav{ :"data-name" => "coll", class: "#{"open" if subsection == "latest_collections"}" }
             - COLLECTIONS.each do |coll|
-              %a{ href: "/gallery/collections/#{coll[:dir]}", class: "#{"selected" if subpath(3) == coll[:dir]}" }= coll[:name].humanize
-          %a{ href: "/gallery/lookbook", class: nav_sub_sel("lookbook") } Lookbook
+              %a{ href: "/gallery/latest_collections/#{coll[:dir]}", class: "#{"selected" if subpath(3) == coll[:dir]}" }= coll[:name].humanize
+          / %a{ href: "/gallery/lookbook", class: nav_sub_sel("lookbook") } Lookbook
           %a{ :"data-subnav" => "coll_past", href: "javascript:void(0)"} Past Collections
-          .subnav{ :"data-name" => "coll_past", class: "#{"open" if subsection == "past"}" }
+          .subnav{ :"data-name" => "coll_past", class: "#{"open" if subsection == "past_collections"}" }
             - PAST_COLL.each do |coll|
-              %a{ href: "/gallery/past/#{coll[:dir]}", class: "#{"selected" if subpath(3) == coll[:dir]}" }= coll[:name].humanize
+              %a{ href: "/gallery/past_collections/#{coll[:dir]}", class: "#{"selected" if subpath(3) == coll[:dir]}" }= coll[:name].humanize
           %a{ href: "/contacts", class: nav_selected("contacts") } Contacts
       %section.content= yield
       .clear
