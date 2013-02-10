@@ -106,6 +106,8 @@ p {
   margin: 0 0 10px 0; }
 
 .contacts {
+  font-family: Times New Roman, Times, Georgia, serif;
+  font-style: oblique;
   margin: 0 5%; }
   .contacts p.main {
     margin: 0 0 20px 0; }
