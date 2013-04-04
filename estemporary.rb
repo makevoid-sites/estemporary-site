@@ -17,7 +17,7 @@ class Estemporary < Sinatra::Base
   PAST_COLL = glob_photo_dir "past_collections"
 
   def load_photos(dir)
-    @photos = Dir.glob("#{PATH}/public/photos/#{dir}/*.jpg").map do |photo|
+    @photos = Dir.glob("#{PATH}/public/photos/#{dir}/*.{jpg,JPG}").map do |photo|
       dimensions = Dimensions.dimensions photo
       vertical = dimensions[0] < dimensions[1]
       name = File.basename photo
