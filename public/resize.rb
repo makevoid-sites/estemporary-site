@@ -2,6 +2,12 @@
 
 # creates a copy of the same directories with the resized files
 
+# configs
+
+SIZE = "1100x700"
+SIZE_THUMB = 250
+
+
 # helpers
 
 class String
@@ -28,11 +34,11 @@ def mkdir(dir)
 end
 
 def convert(src, dest)
-  exec "convert '#{src}' -geometry 1100x700 -density 72 #{dest.filenamize}"
+  exec "convert '#{src}' -geometry #{SIZE} -density 72 #{dest.filenamize}"
 end
 
 def thumbs(src, dest)
-  dim = "250"
+  dim = SIZE_THUMB
   exec "convert '#{src}' -resize '#{dim}x#{dim}^' -gravity center -crop #{dim}x#{dim}+0+0 +repage -density 72 #{dest.filenamize}"
 end
 
