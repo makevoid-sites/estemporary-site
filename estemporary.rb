@@ -70,6 +70,10 @@ class Estemporary < Sinatra::Base
     haml :contacts
   end
 
+  get "/concept" do
+    haml :concept
+  end
+
   get "/gallery/*" do |dir|
     @dir = dir
     haml :gallery

@@ -29,6 +29,7 @@
           .subnav{ :"data-name" => "coll_past", class: "#{"open" if subsection == "past_collections"}" }
             - PAST_COLL.each do |coll|
               %a{ href: "/gallery/past_collections/#{coll[:dir]}", class: "#{"selected" if subpath(3) == coll[:dir]}" }= coll[:name].humanize
+          %a{ href: "/concept", class: nav_selected("concept") } Concept    
           %a{ href: "/contacts", class: nav_selected("contacts") } Contacts
       %section.content= yield
       .clear
