@@ -26,7 +26,7 @@ class Estemporary < Sinatra::Base
       { name: name, vertical: vertical, width: dimensions[0], height: dimensions[1], path: "/photos/#{dir}/#{name}", thumb: "/photos_thumbs/#{dir}/#{name}", title: title }
     end.sort_by{ |p| p[:name].to_i }
     puts "PHOTOS!!!!!!!"
-    p "#{PATH}/public/photos/#{dir}/*.{jpg,JPG}"
+    p Dir.glob("#{PATH}/public/photos/#{dir}/*.{jpg,JPG}")
     @photos
   end
 
