@@ -2,7 +2,6 @@
 - photos = load_photos "#{@dir}#{subdir}"
 
 .gallery
-  = photos
   - photos.each_with_index do |photo, idx|
     %a.fancy{ id: "photo_#{idx}", href: photo[:path], rel: "group" }
       %img{ src: photo[:thumb] }
