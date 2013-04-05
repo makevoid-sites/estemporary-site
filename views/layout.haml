@@ -29,7 +29,7 @@
           .subnav{ :"data-name" => "coll_past", class: "#{"open" if subsection == "past_collections"}" }
             - PAST_COLL.uniq.each_with_index do |coll, idx|
               - if ENV["RACK_ENV"] == "production"
-                -# next if idx == 4 # FIXME: SCEM COLLECTION DOPPIO
+                - next if idx == 4 # FIXME: SCEM COLLECTION DOPPIO
               %a{ href: "/gallery/past_collections/#{coll[:dir]}", class: "#{"selected" if subpath(3) == coll[:dir]}" }= coll[:name].humanize
           %a{ href: "/concept", class: nav_selected("concept") } Concept
           %a{ href: "/contacts", class: nav_selected("contacts") } Contacts
