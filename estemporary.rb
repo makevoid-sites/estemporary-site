@@ -25,6 +25,8 @@ class Estemporary < Sinatra::Base
       title = title.gsub(/^\d+[_-]/, '').gsub(/_/, " ").capitalize
       { name: name, vertical: vertical, width: dimensions[0], height: dimensions[1], path: "/photos/#{dir}/#{name}", thumb: "/photos_thumbs/#{dir}/#{name}", title: title }
     end.sort_by{ |p| p[:name].to_i }
+    puts "PHOTOS!!!!!!!"
+    p @photos
     @photos
   end
 
