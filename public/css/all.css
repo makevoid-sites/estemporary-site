@@ -378,6 +378,14 @@ p {
   font-style: oblique;
   margin: 200px 0; }
 
+.madeby, .mini {
+  font-size: 0.8em; }
+  .madeby a, .mini a {
+    font-weight: bold; }
+
+.madeby {
+  margin: 180px 0 0; }
+
 .concept {
   width: 330px;
   margin: 0 auto; }
