@@ -27,9 +27,9 @@
           / %a{ href: "/gallery/lookbook", class: nav_sub_sel("lookbook") } Lookbook
           %a{ :"data-subnav" => "coll_past", href: "javascript:void(0)"} Past Collections
           .subnav{ :"data-name" => "coll_past", class: "#{"open" if subsection == "past_collections"}" }
-            - PAST_COLL.each do |coll|
+            - PAST_COLL.uniq.each do |coll|
               %a{ href: "/gallery/past_collections/#{coll[:dir]}", class: "#{"selected" if subpath(3) == coll[:dir]}" }= coll[:name].humanize
-          %a{ href: "/concept", class: nav_selected("concept") } Concept    
+          %a{ href: "/concept", class: nav_selected("concept") } Concept
           %a{ href: "/contacts", class: nav_selected("contacts") } Contacts
       %section.content= yield
       .clear
