@@ -1,15 +1,17 @@
-%meta{ charset: "utf-8" }
-%meta{ :"http-equiv" => "X-UA-Compatible", content: "IE=edge" }
 - tagline = "#{TITLE} by Silvia Piantini"
 - meta_description = "EsTemporary is a conceptual space, where are collected ideas translated in contemporary jewellery."
+- host = "http://estemporary.org"
+
+%meta{ charset: "utf-8" }
+%meta{ :"http-equiv" => "X-UA-Compatible", content: "IE=edge" }
 %meta{ name: "description", content: meta_description }
 %meta{ name: "keywords", content: "estemporary, jewelry, jewels, handmade, silvia piantini, etsy" }
 %meta{ name: "author", content: "Francesco 'makevoid' Canessa" }
 
 %meta{ property: "og:title", content: tagline }
-%meta{ property: "og:url", content: "http://estemporary.com" }/
+%meta{ property: "og:url", content: "#{host}#{request.path}" }/
 %meta{ property: "og:type", content: "website" }/
 %meta{ property: "og:site_name", content: TITLE }/
-%meta{ property: "og:image", content: "http://estemporary.com/imgs/estemporary_logo_mini.jpg" }/
+%meta{ property: "og:image", content: "#{host}/imgs/estemporary_logo_mini.jpg" }/
 %meta{ property: "og:description", content: meta_description }/
 %meta{ property: "fb:admins", content: "makevoid" }/
