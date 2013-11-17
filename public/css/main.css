@@ -105,8 +105,11 @@ header {
 p {
   margin: 0 0 10px 0; }
 
-.home img {
-  width: 100%; }
+.home {
+  text-align: center; }
+  .home img {
+    width: 80%;
+    margin: 0 auto; }
 
 .contacts {
   font-family: Times New Roman, Times, Georgia, serif;
@@ -162,4 +165,4 @@ p {
     margin-top: 40px; }
 
   .gallery img {
-    width: 33%; } }
+    width: 25%; } }
