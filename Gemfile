@@ -1,7 +1,7 @@
 source "http://rubygems.org"
 
 gem "sinatra"
-gem "json"
+gem "oj"
 
 # gem "dm-core"
 # gem "dm-mysql-adapter"
@@ -18,7 +18,7 @@ group :development do
   gem "guard"
   gem "guard-sass",         require: false
   gem "guard-coffeescript", require: false
-  gem "guard-livereload",   require: false
+  # gem "guard-livereload",   require: false
   gem "guard-concat", require: false
   # gem "growl"
   gem "rb-inotify"

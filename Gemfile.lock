@@ -1,17 +1,12 @@
 GEM
   remote: http://rubygems.org/
   specs:
-    addressable (2.3.2)
     coderay (1.0.8)
     coffee-script (2.2.0)
       coffee-script-source
       execjs
     coffee-script-source (1.4.0)
     dimensions (1.2.0)
-    em-websocket (0.3.8)
-      addressable (>= 2.1.1)
-      eventmachine (>= 0.12.9)
-    eventmachine (1.0.0)
     execjs (1.4.0)
       multi_json (~> 1.0)
     ffi (1.3.0)
@@ -27,19 +22,15 @@ GEM
       guard (>= 1.1.0)
     guard-concat (0.0.2)
       guard (>= 1.1.0)
-    guard-livereload (1.1.3)
-      em-websocket (>= 0.2.0)
-      guard (>= 1.5.0)
-      multi_json (~> 1.0)
     guard-sass (1.0.1)
       guard (>= 1.1.0)
       sass (>= 3.1)
     haml (3.1.7)
-    json (1.7.6)
     listen (0.7.1)
     lumberjack (1.0.2)
     method_source (0.8.1)
     multi_json (1.5.0)
+    oj (2.17.4)
     pry (0.9.10)
       coderay (~> 1.0.5)
       method_source (~> 0.8)
@@ -70,12 +61,14 @@ DEPENDENCIES
   guard
   guard-coffeescript
   guard-concat
-  guard-livereload
   guard-sass
   haml
-  json
+  oj
   rb-inotify
   rerun
   sass
   sinatra
   voidtools
+
+BUNDLED WITH
+   1.12.5
