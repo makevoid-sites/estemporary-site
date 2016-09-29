@@ -63,3 +63,6 @@ Dir.glob("#{dir_src}/**/**").each do |file|
     thumbs  file, dest_thumbs
   end
 end
+
+
+# last time this script took 1m 30s (msivoid)
