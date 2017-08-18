@@ -23,7 +23,7 @@ set :branch,      'master'
 
 # Manually create these paths in shared/ (eg: shared/config/database.yml) in your server.
 # They will be linked in the 'deploy:link_shared_paths' step.
-set :shared_paths, ['log']
+# set :shared_paths, ['log']
 
 # Optional settings:
 set :user, 'www-data'
@@ -54,12 +54,11 @@ task :deploy => :environment do
     # Put things that will set up an empty directory into a fully set-up
     # instance of your project.
     invoke :'git:clone'
-    invoke :'deploy:link_shared_paths'
+    # invoke :'deploy:link_shared_paths'
     invoke :'bundle:install'
 
-    to :launch do
-      queue 'mkdir -p tmp'
-      queue 'touch tmp/restart.txt'
+    on :launch do
+      invoke :'passenger:restart'
     end
   end
 end
