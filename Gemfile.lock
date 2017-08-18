@@ -94,7 +94,6 @@ DEPENDENCIES
   oj
   rb-inotify
   rerun
-  sass
   sinatra (~> 1.3)
   voidtools
 

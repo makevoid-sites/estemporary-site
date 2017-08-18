@@ -8,7 +8,7 @@ gem "oj"
 # gem "dm-migrations"
 
 gem "haml"
-gem "sass"
+# gem "sass"
 
 gem "dimensions"
 
