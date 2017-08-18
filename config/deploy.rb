@@ -1,64 +1,62 @@
-# configs
-
-app_name = "estemporary"
-
-
-# deploy
-
-require 'mina/bundler'
 require 'mina/git'
-# require 'mina/rbenv'  # for rbenv support. (http://rbenv.org)
-# require 'mina/rvm'    # for rvm support. (http://rvm.io)
+require 'mina/bundler'
+require 'mina/rails' # required but why?
 
-# Basic settings:
-#   domain       - The hostname to SSH to.
-#   deploy_to    - Path to deploy into.
-#   repository   - Git repo to clone from. (needed by mina/git)
-#   branch       - Branch name to deploy. (needed by mina/git)
+set :root_path, 'estemporary'
+set :application_name, 'estemporary'
+set :domain, 'makevoid.com'
+set :deploy_to, "/www/#{fetch(:application_name)}"
+set :repository, "git://github.com/makevoid/#{fetch(:application_name)}"
+set :branch, 'master'
 
-set :domain,      'makevoid.com'
-set :deploy_to,   "/www/#{app_name}"
-set :repository,  "git://github.com/makevoid/#{app_name}"
-set :branch,      'master'
-
-# Manually create these paths in shared/ (eg: shared/config/database.yml) in your server.
-# They will be linked in the 'deploy:link_shared_paths' step.
-# set :shared_paths, ['log']
-
-# Optional settings:
 set :user, 'www-data'
-#   set :port, '30000'     # SSH port number.
 
-# This task is the environment that is loaded for most commands, such as
+
+# shared dirs and files will be symlinked into the app-folder by the 'deploy:link_shared_paths' step.
+# set :shared_dirs, fetch(:shared_dirs, []).push('somedir')
+# set :shared_files, fetch(:shared_files, []).push('config/database.yml', 'config/secrets.yml')
+
+# This task is the environment that is loaded for all remote run commands, such as
 # `mina deploy` or `mina rake`.
 task :environment do
   # If you're using rbenv, use this to load the rbenv environment.
-  # Be sure to commit your .rbenv-version to your repository.
+  # Be sure to commit your .ruby-version or .rbenv-version to your repository.
   # invoke :'rbenv:load'
 
   # For those using RVM, use this to load an RVM version@gemset.
-  # invoke :'rvm:use[ruby-1.9.3-p125@default]'
+  # invoke :'rvm:use', 'ruby-1.9.3-p125@default'
 end
 
-# Put any custom mkdir's in here for when `mina setup` is ran.
-# For Rails apps, we'll make some of the shared paths that are shared between
-# all releases.
-task :setup => :environment do
-  queue! %[mkdir -p "#{deploy_to}/shared/log"]
-  queue! %[chmod g+rx,u+rwx "#{deploy_to}/shared/log"]
+# Put any custom commands you need to run at setup
+# All paths in `shared_dirs` and `shared_paths` will be created on their own.
+task :setup do
+  # command %{rbenv install 2.3.0}
 end
 
 desc "Deploys the current version to the server."
-task :deploy => :environment do
+task :deploy do
+  # uncomment this line to make sure you pushed your local branch to the remote origin
+  # invoke :'git:ensure_pushed'
   deploy do
     # Put things that will set up an empty directory into a fully set-up
     # instance of your project.
     invoke :'git:clone'
     # invoke :'deploy:link_shared_paths'
     invoke :'bundle:install'
+    # invoke :'deploy:cleanup'
 
     on :launch do
-      invoke :'passenger:restart'
+      in_path(fetch(:current_path)) do
+        command %{mkdir -p tmp/}
+        command %{touch tmp/restart.txt}
+      end
     end
   end
+
+  # you can use `run :local` to run tasks on local machine before of after the deploy scripts
+  # run(:local){ say 'done' }
 end
+
+# For help in making your deploy script, see the Mina documentation:
+#
+#  - https://github.com/mina-deploy/mina/tree/master/docs

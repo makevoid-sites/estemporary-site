@@ -40,11 +40,15 @@ GEM
       ruby_dep (~> 1.2)
     lumberjack (1.0.12)
     method_source (0.8.2)
+    mina (1.0.6)
+      open4 (~> 1.3.4)
+      rake
     nenv (0.3.0)
     notiffany (0.1.1)
       nenv (~> 0.1)
       shellany (~> 0.0)
     oj (3.3.5)
+    open4 (1.3.4)
     pry (0.10.4)
       coderay (~> 1.1.0)
       method_source (~> 0.8.1)
@@ -52,6 +56,7 @@ GEM
     rack (1.6.8)
     rack-protection (1.5.3)
       rack
+    rake (12.0.0)
     rb-fsevent (0.10.2)
     rb-inotify (0.9.10)
       ffi (>= 0.5.0, < 2)
@@ -85,6 +90,7 @@ DEPENDENCIES
   guard-concat
   guard-sass
   haml
+  mina
   oj
   rb-inotify
   rerun

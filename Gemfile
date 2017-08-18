@@ -13,6 +13,7 @@ gem "sass"
 gem "dimensions"
 
 group :development do
+  gem "mina"
   gem "foreman"
   gem "rerun"
   gem "guard"
