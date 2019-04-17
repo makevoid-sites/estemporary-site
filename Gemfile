@@ -10,6 +10,8 @@ gem "dimensions"
 group :development do
   gem "puma"
 
+  gem "rake"
+
   gem "foreman"
   gem "rerun"
   gem "guard"

@@ -261,7 +261,7 @@ a {
 html, body {
   margin: 0;
   padding: 0;
-  color: #222222; }
+  color: #222; }
 
 .clear {
   clear: both; }
@@ -270,16 +270,15 @@ html, body {
   font-family: helvetica_neue;
   src: url("/fonts/helvetica_neue.eot");
   src: url("/fonts/helvetica_neue.eot?#iefix") format("embedded-opentype"), url("/fonts/helvetica_neue.woff") format("woff"), url("/fonts/helvetica_neue.ttf") format("truetype"), url("/fonts/helvetica_neue.svg#helvetica_neue") format("svg"), url("/fonts/helvetica_neue.otf"); }
-
 a {
-  color: black;
+  color: #000;
   font-weight: 500; }
 
 a:hover {
-  color: #666666; }
+  color: #666; }
 
 body {
-  background: white;
+  background: #FFF;
   font-family: helvetica_neue, Helvetica, Arial, Verdana, sans-serif; }
 
 .upcase {
@@ -321,18 +320,18 @@ nav {
   padding: 0 0 0 2%; }
   nav a {
     display: block;
-    color: #444444;
+    color: #444;
     margin: 10px 0 0 0;
     font-weight: normal; }
   nav a.selected {
-    color: #111111; }
+    color: #111; }
 
 .subnav {
   margin: 0 10px 0 10px; }
   .subnav a {
-    color: #888888; }
+    color: #888; }
   .subnav a:hover {
-    color: black; }
+    color: #000; }
 
 header {
   width: 30%;
@@ -341,7 +340,7 @@ header {
 
 .content {
   width: 70%;
-  color: #222222;
+  color: #222;
   float: left;
   margin: 22px 0 0;
   padding: 0 2% 0 1%; }
@@ -357,7 +356,7 @@ p {
 .home {
   text-align: center; }
   .home img {
-    width: 80%;
+    width: 55%;
     margin: 0 auto; }
 
 .contacts {
@@ -407,7 +406,6 @@ p {
 @media(max-width: 650px) {
   .concept img {
     left: 0; } }
-
 @media(max-width: 650px) {
   header {
     width: 100%; }
