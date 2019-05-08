@@ -4,7 +4,7 @@
 
 # configs
 
-SIZE = "1100x700"
+SIZE = "1800x1100"
 SIZE_THUMB = 250
 
 
